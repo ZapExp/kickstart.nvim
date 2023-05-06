@@ -34,7 +34,7 @@ require('lazy').setup({
   {
     'kdheepak/lazygit.nvim',
     keys = {
-      { '<leader>gg', '<cmd>LazyGit<cr>', desc = 'UndoTree' },
+      { '<leader>gg', '<cmd>LazyGit<cr>', desc = 'Open LazyGit' },
     },
   },
 
