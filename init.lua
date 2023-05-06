@@ -29,8 +29,14 @@ require('lazy').setup({
   -- NOTE: First, some plugins that don't require any configuration
 
   -- Git related plugins
-  'tpope/vim-fugitive',
+  -- 'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
+  {
+    'kdheepak/lazygit.nvim',
+    keys = {
+      { '<leader>gg', '<cmd>LazyGit<cr>', desc = 'UndoTree' },
+    },
+  },
 
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
@@ -261,7 +267,7 @@ vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { de
 -- See `:help nvim-treesitter`
 require('nvim-treesitter.configs').setup {
   -- Add languages to be installed here that you want installed for treesitter
-  ensure_installed = { 'lua', 'tsx', 'typescript', 'javascript', 'svelte', 'vimdoc', 'vim' },
+  ensure_installed = { 'lua', 'tsx', 'typescript', 'javascript', 'svelte', 'html', 'css', 'vimdoc', 'vim' },
 
   -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
   auto_install = true,
@@ -388,6 +394,8 @@ local servers = {
   -- rust_analyzer = {},
   tsserver = {},
   svelte = {},
+  tailwindcss = {},
+  emmet_ls = {},
 
   lua_ls = {
     Lua = {
@@ -483,13 +491,13 @@ local cfg = {
 } -- add your config here
 require('lsp_signature').setup(cfg)
 
-vim.keymap.set({ 'n' }, '<leader>k', function()
+vim.keymap.set({ 'i' }, '<C-S-space>', function()
   require('lsp_signature').toggle_float_win()
 end, { silent = true, noremap = true, desc = 'toggle signature' })
 --
--- vim.keymap.set({ 'n' }, '<Leader>K', function()
---   vim.lsp.buf.signature_help()
--- end, { silent = true, noremap = true, desc = 'toggle signature' })
+vim.keymap.set({ 'n' }, '<Leader>k', function()
+  vim.lsp.buf.signature_help()
+end, { silent = true, noremap = true, desc = 'toggle signature' })
 
 -- custom lua
 require 'custom.init'
