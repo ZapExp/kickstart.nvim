@@ -59,3 +59,10 @@ end, { desc = 'Go to next file' })
 vim.keymap.set('n', '<leader>hp', function()
 	require('harpoon.ui').nav_prev()
 end, { desc = 'Go to previous file' })
+
+--File explorer
+vim.keymap.set('n', '<leader>e', '<cmd>Ex<CR>', { desc = 'Open file [E]xplorer in current buffer' })
+
+--Buffers
+vim.keymap.set('n', '<leader>|', '<cmd>vsplit<CR>', { desc = 'Split buffer vertically' })
+vim.keymap.set('n', '<leader>\\', '<cmd>split<CR>', { desc = 'Split buffer horizontally' })
