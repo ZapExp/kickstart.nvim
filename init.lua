@@ -33,6 +33,7 @@ require('lazy').setup({
   'tpope/vim-rhubarb',
   {
     'kdheepak/lazygit.nvim',
+    lazy = true,
     keys = {
       { '<leader>gg', '<cmd>LazyGit<cr>', desc = 'Open LazyGit' },
     },
@@ -491,13 +492,13 @@ local cfg = {
 } -- add your config here
 require('lsp_signature').setup(cfg)
 
-vim.keymap.set({ 'i' }, '<C-S-space>', function()
+vim.keymap.set({ 'i' }, '<C-space>', function()
   require('lsp_signature').toggle_float_win()
 end, { silent = true, noremap = true, desc = 'toggle signature' })
 --
-vim.keymap.set({ 'n' }, '<Leader>k', function()
-  vim.lsp.buf.signature_help()
-end, { silent = true, noremap = true, desc = 'toggle signature' })
+-- vim.keymap.set({ 'n' }, '<Leader>k', function()
+--   vim.lsp.buf.signature_help()
+-- end, { silent = true, noremap = true, desc = 'toggle signature' })
 
 -- custom lua
 require 'custom.init'
