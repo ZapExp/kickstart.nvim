@@ -1,3 +1,5 @@
+vim.g.lazygit_floating_window_scaling_factor = 1 -- scaling factor for floating window
+
 -- tree options
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
@@ -36,7 +38,6 @@ require('lazy').setup({
   'tpope/vim-rhubarb',
   {
     'kdheepak/lazygit.nvim',
-    lazy = true,
     keys = {
       { '<leader>gg', '<cmd>LazyGit<cr>', desc = 'Open LazyGit' },
     },
