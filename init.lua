@@ -1,3 +1,6 @@
+-- tree options
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 -- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
@@ -41,6 +44,18 @@ require('lazy').setup({
 
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
+
+  -- file tree
+  {
+    'nvim-tree/nvim-tree.lua',
+    dependencies = {
+      'nvim-tree/nvim-web-devicons',
+    },
+    keys = {
+      { '<leader>e', '<cmd>NvimTreeToggle<cr>', desc = 'Open Nvim Tree' },
+    },
+    opts = {}
+  },
 
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
