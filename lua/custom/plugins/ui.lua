@@ -1,10 +1,32 @@
 return {
+	-- {
+	-- 	-- Theme inspired by Atom
+	-- 	'navarasu/onedark.nvim',
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		vim.cmd.colorscheme 'onedark'
+	-- 	end,
+	-- },
 	{
-		-- Theme inspired by Atom
-		'navarasu/onedark.nvim',
-		priority = 1000,
+		'catppuccin/nvim',
+		name = 'catppuccin',
 		config = function()
-			vim.cmd.colorscheme 'onedark'
+			require('catppuccin').setup {
+				flavour = 'macchiato', -- latte, frappe, macchiato, mocha
+				integrations = {
+					fidget = true,
+					gitsigns = true,
+					harpoon = true,
+					hop = true,
+					mini = true,
+					cmp = true,
+					nvimtree = true,
+					treesitter = true,
+					telescope = true,
+					which_key = true,
+				},
+			}
+			vim.cmd.colorscheme 'catppuccin'
 		end,
 	},
 
@@ -15,7 +37,7 @@ return {
 		opts = {
 			options = {
 				icons_enabled = false,
-				theme = 'onedark',
+				theme = 'catppuccin',
 				component_separators = '|',
 				section_separators = '',
 			},
