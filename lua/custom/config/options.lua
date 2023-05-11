@@ -45,3 +45,28 @@ vim.opt.scrolloff = 8
 
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
+
+-- timeout for which key
+vim.o.timeoutlen = 500
+
+-- highlight on yank
+-- vim.api.nvim_create_autocmd('TextYankPost', {
+-- 	group = vim.api.nvim_create_augroup('highlight_yank'),
+-- 	desc = 'Hightlight selection on yank',
+-- 	pattern = '*',
+-- 	callback = function()
+-- 		vim.highlight.on_yank { higroup = 'IncSearch', timeout = 500 }
+-- 	end,
+-- })
+--
+
+-- [[ Highlight on yank ]]
+-- See `:help vim.highlight.on_yank()`
+local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
+vim.api.nvim_create_autocmd('TextYankPost', {
+	callback = function()
+		vim.highlight.on_yank { timeout = 220 }
+	end,
+	group = highlight_group,
+	pattern = '*',
+})
