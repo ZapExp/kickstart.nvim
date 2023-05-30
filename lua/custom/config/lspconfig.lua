@@ -68,6 +68,8 @@ local servers = {
 	svelte = {},
 	tailwindcss = {},
 	emmet_ls = {},
+	prismals={},
+	jsonls ={},
 
 	lua_ls = {
 		Lua = {
