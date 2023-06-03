@@ -89,10 +89,6 @@ return {
 	},
 
 	{
-		'ray-x/lsp_signature.nvim',
-	},
-
-	{
 		'windwp/nvim-ts-autotag',
 		lazy = true,
 		event = { 'BufReadPost', 'BufNewFile' },

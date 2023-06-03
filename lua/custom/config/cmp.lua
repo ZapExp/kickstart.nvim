@@ -68,26 +68,3 @@ cmp.setup {
 		{ name = 'path' },
 	},
 }
-
--- lsp_signature
-local cfg = {
-	bind = true, -- This is mandatory, otherwise border config won't get registered.
-	handler_opts = {
-		border = 'none',
-	},
-	doc_lines = 0,
-	max_height = 8,
-	hint_prefix = '󰰙 ',
-	zindex = 45,
-	padding = ' ',
-	floating_window = false,
-} -- add your config here
-require('lsp_signature').setup(cfg)
-
-vim.keymap.set({ 'i' }, '<C-ñ>', function()
-	require('lsp_signature').toggle_float_win()
-end, { silent = true, noremap = true, desc = 'toggle signature' })
---
--- vim.keymap.set({ 'n' }, '<Leader>k', function()
---   vim.lsp.buf.signature_help()
--- end, { silent = true, noremap = true, desc = 'toggle signature' })

@@ -27,19 +27,19 @@ if vim.g.vscode then
       end,
     },
   }, {})
-  
+
   vim.o.clipboard = 'unnamedplus'
 
   local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
   vim.api.nvim_create_autocmd('TextYankPost', {
-  	callback = function()
-  		vim.highlight.on_yank { timeout = 250 }
-  	end,
-  	group = highlight_group,
-  	pattern = '*',
+    callback = function()
+      vim.highlight.on_yank { timeout = 250 }
+    end,
+    group = highlight_group,
+    pattern = '*',
   })
-  else
-    vim.g.lazygit_floating_window_scaling_factor = 1 -- scaling factor for floating window
+else
+  vim.g.lazygit_floating_window_scaling_factor = 1   -- scaling factor for floating window
 
   -- tree options
   vim.g.loaded_netrw = 1
