@@ -5,8 +5,10 @@ vim.keymap.set('n', 'gl', vim.diagnostic.open_float, { desc = 'Open floating dia
 vim.keymap.set('n', 'gL', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
 -- LSP settings.
+--  navic
+local navic = require("nvim-navic")
 --  This function gets run when an LSP connects to a particular buffer.
-local on_attach = function(_, bufnr)
+local on_attach = function(client, bufnr)
 	-- NOTE: Remember that lua is a real programming language, and as such it is possible
 	-- to define small helper and utility functions so you don't have to repeat yourself
 	-- many times.
@@ -19,6 +21,11 @@ local on_attach = function(_, bufnr)
 		end
 
 		vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
+	end
+
+	-- atach navic
+	if client.server_capabilities.documentSymbolProvider then
+		navic.attach(client, bufnr)
 	end
 
 	-- -- Enable completion triggered by <c-x><c-o>
@@ -68,8 +75,8 @@ local servers = {
 	svelte = {},
 	tailwindcss = {},
 	emmet_ls = {},
-	prismals={},
-	jsonls ={},
+	prismals = {},
+	jsonls = {},
 
 	lua_ls = {
 		Lua = {

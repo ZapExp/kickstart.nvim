@@ -73,3 +73,7 @@ end, { desc = 'Go to previous file' })
 -- Buffers
 vim.keymap.set('n', '<leader>|', '<cmd>vsplit<CR>', { desc = 'Split buffer vertically' })
 vim.keymap.set('n', '<leader>\\', '<cmd>split<CR>', { desc = 'Split buffer horizontally' })
+
+vim.keymap.set('n', '<leader>bd', [[<cmd>lua require("mini.bufremove").delete(0, false)<CR>]], { desc = 'Delete Buffer' })
+vim.keymap.set('n', '<leader>bD', [[<cmd>lua require("mini.bufremove").delete(0, true)<CR>]], { desc = 'Delete Buffer (Force)' })
+

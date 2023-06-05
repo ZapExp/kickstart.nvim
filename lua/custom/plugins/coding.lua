@@ -15,7 +15,57 @@ return {
 					window = {
 						blend = 0,
 					},
-				}
+				},
+			},
+			{
+				'SmiteshP/nvim-navic',
+				init = function()
+					vim.g.navic_silence = true
+				end,
+				opts = function()
+					return {
+						separator = ' ',
+						highlight = true,
+						depth_limit = 5,
+						icons = {
+							Array = ' ',
+							Boolean = ' ',
+							Class = ' ',
+							Color = ' ',
+							Constant = ' ',
+							Constructor = ' ',
+							Copilot = ' ',
+							Enum = ' ',
+							EnumMember = ' ',
+							Event = ' ',
+							Field = ' ',
+							File = ' ',
+							Folder = ' ',
+							Function = ' ',
+							Interface = ' ',
+							Key = ' ',
+							Keyword = ' ',
+							Method = ' ',
+							Module = ' ',
+							Namespace = ' ',
+							Null = ' ',
+							Number = ' ',
+							Object = ' ',
+							Operator = ' ',
+							Package = ' ',
+							Property = ' ',
+							Reference = ' ',
+							Snippet = ' ',
+							String = ' ',
+							Struct = ' ',
+							Text = ' ',
+							TypeParameter = ' ',
+							Unit = ' ',
+							Value = ' ',
+							Variable = ' ',
+						},
+					}
+				end,
 			},
 			-- Additional lua configuration, makes nvim stuff amazing!
 			'folke/neodev.nvim',
@@ -32,6 +82,7 @@ return {
 		dependencies = {
 			'hrsh7th/cmp-nvim-lsp',
 			'hrsh7th/cmp-path',
+			'hrsh7th/cmp-buffer',
 			'L3MON4D3/LuaSnip',
 			{
 				'saadparwaiz1/cmp_luasnip',
@@ -86,6 +137,16 @@ return {
 				},
 			}
 		end,
+	},
+
+	{
+		'nvim-pack/nvim-spectre',
+		cmd = 'Spectre',
+		opts = { open_cmd = 'noswapfile vnew' },
+		-- stylua: ignore
+		keys = {
+			{ "<leader>sr", function() require("spectre").open() end, desc = "Replace in files (Spectre)" },
+		},
 	},
 
 	{
