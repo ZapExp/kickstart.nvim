@@ -16,6 +16,10 @@ return {
 					treesitter = true,
 					telescope = true,
 					which_key = true,
+					navic = {
+						enabled = true,
+						custom_bg = 'NONE',
+					},
 				},
 			}
 			vim.cmd.colorscheme 'catppuccin'
@@ -104,15 +108,6 @@ return {
 					lualine_b = { 'branch' },
 					lualine_c = {
 						{
-							'diagnostics',
-							symbols = {
-								error = icons.diagnostics.Error,
-								warn = icons.diagnostics.Warn,
-								info = icons.diagnostics.Info,
-								hint = icons.diagnostics.Hint,
-							},
-						},
-						{
 							'filetype',
 							icon_only = true,
 							separator = '',
@@ -123,12 +118,13 @@ return {
 						},
 						{ 'filename', path = 1, symbols = { modified = '  ', readonly = '', unnamed = '' } },
 						{
-							function()
-								return require('nvim-navic').get_location()
-							end,
-							cond = function()
-								return package.loaded['nvim-navic'] and require('nvim-navic').is_available()
-							end,
+							'diagnostics',
+							symbols = {
+								error = icons.diagnostics.Error,
+								warn = icons.diagnostics.Warn,
+								info = icons.diagnostics.Info,
+								hint = icons.diagnostics.Hint,
+							},
 						},
 					},
 					lualine_x = {
@@ -161,6 +157,25 @@ return {
 						function()
 							return ' ' .. os.date '%R'
 						end,
+					},
+				},
+				winbar = {
+					lualine_b = {
+						{
+							function()
+								return [[location]]
+							end,
+						},
+					},
+					lualine_c = {
+						{
+							function()
+								return require('nvim-navic').get_location()
+							end,
+							cond = function()
+								return package.loaded['nvim-navic'] and require('nvim-navic').is_available()
+							end,
+						},
 					},
 				},
 				extensions = { 'neo-tree', 'lazy' },

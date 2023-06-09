@@ -6,7 +6,50 @@ vim.keymap.set('n', 'gL', vim.diagnostic.setloclist, { desc = 'Open diagnostics 
 
 -- LSP settings.
 --  navic
-local navic = require("nvim-navic")
+local navic = require 'nvim-navic'
+navic.setup {
+	separator = ' > ',
+	highlight = true,
+	depth_limit = 5,
+	safe_output = true,
+	icons = {
+		Array = ' ',
+		Boolean = ' ',
+		Class = ' ',
+		Color = ' ',
+		Constant = ' ',
+		Constructor = ' ',
+		Copilot = ' ',
+		Enum = ' ',
+		EnumMember = ' ',
+		Event = ' ',
+		Field = ' ',
+		File = ' ',
+		Folder = ' ',
+		Function = ' ',
+		Interface = ' ',
+		Key = ' ',
+		Keyword = ' ',
+		Method = ' ',
+		Module = ' ',
+		Namespace = ' ',
+		Null = ' ',
+		Number = ' ',
+		Object = ' ',
+		Operator = ' ',
+		Package = ' ',
+		Property = ' ',
+		Reference = ' ',
+		Snippet = ' ',
+		String = ' ',
+		Struct = ' ',
+		Text = ' ',
+		TypeParameter = ' ',
+		Unit = ' ',
+		Value = ' ',
+		Variable = ' ',
+	},
+}
 --  This function gets run when an LSP connects to a particular buffer.
 local on_attach = function(client, bufnr)
 	-- NOTE: Remember that lua is a real programming language, and as such it is possible
