@@ -120,6 +120,7 @@ local servers = {
 	emmet_ls = {},
 	prismals = {},
 	jsonls = {},
+	java_language_server = {},
 
 	lua_ls = {
 		Lua = {
