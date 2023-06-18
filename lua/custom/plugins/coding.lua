@@ -9,20 +9,14 @@ return {
 			'williamboman/mason-lspconfig.nvim',
 			-- Useful status updates for LSP
 			-- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-			{
-				'j-hui/fidget.nvim',
-				opts = {
-					window = {
-						blend = 0,
-					},
-				},
-			},
-			{
-				'SmiteshP/nvim-navic',
-				init = function()
-					vim.g.navic_silence = true
-				end,
-			},
+			-- {
+			-- 	'j-hui/fidget.nvim',
+			-- 	opts = {
+			-- 		window = {
+			-- 			blend = 0,
+			-- 		},
+			-- 	},
+			-- },
 			-- Additional lua configuration, makes nvim stuff amazing!
 			'folke/neodev.nvim',
 		},

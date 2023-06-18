@@ -7,7 +7,6 @@ return {
 				flavour = 'macchiato', -- latte, frappe, macchiato, mocha
 				transparent_background = true,
 				integrations = {
-					fidget = true,
 					gitsigns = true,
 					harpoon = true,
 					hop = true,
@@ -17,10 +16,6 @@ return {
 					treesitter = true,
 					telescope = true,
 					which_key = true,
-					navic = {
-						enabled = true,
-						custom_bg = 'NONE',
-					},
 				},
 			}
 			vim.cmd.colorscheme 'catppuccin'
@@ -158,25 +153,6 @@ return {
 						function()
 							return ' ' .. os.date '%R'
 						end,
-					},
-				},
-				winbar = {
-					lualine_b = {
-						{
-							function()
-								return [[location]]
-							end,
-						},
-					},
-					lualine_c = {
-						{
-							function()
-								return require('nvim-navic').get_location()
-							end,
-							cond = function()
-								return package.loaded['nvim-navic'] and require('nvim-navic').is_available()
-							end,
-						},
 					},
 				},
 				extensions = { 'neo-tree', 'lazy' },
