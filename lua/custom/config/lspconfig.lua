@@ -62,8 +62,8 @@ end
 local servers = {
 	-- clangd = {},
 	-- gopls = {},
-	-- pyright = {},
 	-- rust_analyzer = {},
+	pyright = {},
 	tsserver = {},
 	svelte = {},
 	tailwindcss = {},
